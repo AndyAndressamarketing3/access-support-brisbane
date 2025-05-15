@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useParams, Link } from 'react-router-dom';
-import { ChevronLeft, Phone } from 'lucide-react';
+import { ChevronLeft, Phone, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 // Animation variants
@@ -294,7 +294,7 @@ const ServiceHero = ({ service }: { service: any }) => {
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
