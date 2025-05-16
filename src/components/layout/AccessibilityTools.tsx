@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { FontSize, Eye, AccessibilityIcon } from 'lucide-react';
+import { Eye, AccessibilityIcon, ALargeSmall } from 'lucide-react';
 
 const AccessibilityTools = () => {
   const [isOpen, setIsOpen] = useState(false);
