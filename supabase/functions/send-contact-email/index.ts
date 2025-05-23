@@ -3,7 +3,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { Resend } from "npm:resend@1.0.0";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
-const recipientEmail = "andressa.261216@hotmail.com";
+const recipientEmail = "dessa261216@gmail.com";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
