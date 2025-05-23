@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
@@ -22,6 +21,11 @@ const staggerChildren = {
 };
 
 const Home = () => {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -68,13 +72,6 @@ const HeroSection = () => {
             variants={staggerChildren}
             className="space-y-6"
           >
-            <motion.span 
-              variants={fadeIn}
-              className="bg-primary-light/10 text-primary px-4 py-2 rounded-full text-sm font-medium inline-block"
-            >
-              NDIS Registered Provider
-            </motion.span>
-            
             <motion.h1
               variants={fadeIn} 
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
@@ -120,10 +117,6 @@ const HeroSection = () => {
                 alt="Kind Access Support Services" 
                 className="w-full h-full object-cover rounded-lg"
               />
-            </div>
-            
-            <div className="absolute top-[-40px] right-[-40px] w-[120px] h-[120px] rounded-full bg-secondary flex items-center justify-center text-white font-bold text-2xl transform rotate-12 shadow-lg">
-              NDIS
             </div>
           </motion.div>
         </div>
@@ -373,8 +366,8 @@ const TestimonialsSection = () => {
     },
     {
       name: 'Charlotte Williams',
-      role: 'Parent of Client',
-      content: 'I cannot speak highly enough of the support my daughter has received. The team at Kind Access truly understands her needs and helps her thrive in ways I never thought possible.',
+      role: 'Client',
+      content: 'The support I\'ve received from Kind Access has completely changed my life. They truly understand my needs and have helped me thrive in ways I never thought possible. I\'m so grateful for their personalized approach.',
       image: '/lovable-uploads/452f632f-c90e-4728-9788-681b37c8312b.png'
     },
     {
