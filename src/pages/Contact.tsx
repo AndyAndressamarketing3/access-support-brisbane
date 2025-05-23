@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -19,6 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { supabase } from "@/integrations/supabase/client";
 
 // Form schema
 const contactFormSchema = z.object({
@@ -140,16 +140,13 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://kind-access.vercel.app/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      // Call the Supabase Edge Function to send the email
+      const { data: responseData, error } = await supabase.functions.invoke('send-contact-email', {
+        body: data
       });
       
-      if (!response.ok) {
-        throw new Error('Failed to send message');
+      if (error) {
+        throw new Error(error.message);
       }
       
       toast({
@@ -366,4 +363,3 @@ const MapSection = () => {
 };
 
 export default Contact;
-
